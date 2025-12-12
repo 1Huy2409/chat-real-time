@@ -3,6 +3,32 @@ include ../../mixins/alert.pug
 block main
     +alert-success(2000)
     +alert-error(2000)
-    h1 Chat Real-time Application
-    //- show information about socket.io and this application
-    
+    .container.my-5
+        .text-center.mb-5
+            h1.display-3(style="color: white; font-weight: 800; text-shadow: 2px 2px 8px rgba(0,0,0,0.3);") 💬 Chat Real-time Application
+            p.lead(style="color: white; font-size: 1.4rem; margin-top: 25px; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);") Kết nối và trò chuyện với bạn bè mọi lúc, mọi nơi
+
+        .row.justify-content-center.mt-5
+            .col-lg-4.col-md-6.mb-4
+                .card(style="border: none; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.25); background: white; transition: all 0.3s ease; min-height: 320px;")
+                    .card-body.text-center.p-5
+                        .mb-4
+                            i.fa.fa-comments(style="font-size: 4.5rem; color: #667eea;")
+                        h3.card-title(style="color: #333; font-weight: 700; font-size: 1.5rem; margin-bottom: 20px;") Chat Realtime
+                        p.card-text(style="color: #666; font-size: 1.05rem; line-height: 1.6;") Trò chuyện nhanh chóng với bạn bè, hỗ trợ emoji và hình ảnh
+
+            .col-lg-4.col-md-6.mb-4
+                .card(style="border: none; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.25); background: white; transition: all 0.3s ease; min-height: 320px;")
+                    .card-body.text-center.p-5
+                        .mb-4
+                            i.fa.fa-users(style="font-size: 4.5rem; color: #764ba2;")
+                        h3.card-title(style="color: #333; font-weight: 700; font-size: 1.5rem; margin-bottom: 20px;") Quản lý bạn bè
+                        p.card-text(style="color: #666; font-size: 1.05rem; line-height: 1.6;") Thêm bạn bè, tạo nhóm chat và kết nối dễ dàng
+
+            .col-lg-4.col-md-6.mb-4
+                .card(style="border: none; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.25); background: white; transition: all 0.3s ease; min-height: 320px;")
+                    .card-body.text-center.p-5
+                        .mb-4
+                            i.fa.fa-lock(style="font-size: 4.5rem; color: #28a745;")
+                        h3.card-title(style="color: #333; font-weight: 700; font-size: 1.5rem; margin-bottom: 20px;") Bảo mật cao
+                        p.card-text(style="color: #666; font-size: 1.05rem; line-height: 1.6;") Thông tin được mã hóa, đảm bảo an toàn tuyệt đối

@@ -3,7 +3,7 @@ header.header
         .row.align-items-center     
             .col-3 
                 .inner-logo 
-                    a(href = "/")
+                    a(href = "/" style="margin-top: 0px;")
                         img(src = "/images/corgi.jpg")
             .col-5 
                 h1 Chat Real-time Application
@@ -12,15 +12,13 @@ header.header
                     ul 
                         if (user)
                             li 
-                                a(href = "/user/info") Thông tin cá nhân
+                                a(href = "/users/info") Thông tin cá nhân
                             li  
-                                a(href = "/user/logout") Đăng xuất
+                                a(href = "/auth/logout") Đăng xuất
                             li 
                                 a(href = "/users/friend") Bạn bè
-                            li  
-                                a(href = "/rooms-chat") Phòng chat
                         else
                             li
-                                a(href = "/user/register") Đăng ký
+                                a(href = "/auth/register") Đăng ký
                             li
-                                a(href = "/user/login") Đăng nhập
+                                a(href = "/auth/login") Đăng nhập

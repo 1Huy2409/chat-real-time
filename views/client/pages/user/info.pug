@@ -1,0 +1,84 @@
+extends ../../layouts/default.pug 
+include ../../mixins/box-head.pug 
+
+block main 
+    .container.my-3 
+        .row
+            .col-12 
+                +box-head("👤 Thông tin cá nhân")
+        .row.mt-4
+            .col-lg-4.mb-4
+                .profile-card
+                    .profile-avatar
+                        img(
+                            src = (user.avatar ? user.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
+                            alt = user.fullName
+                        )
+                    .profile-name
+                        h3 #{user.fullName}
+                        p.profile-email 
+                            i.fa.fa-envelope
+                            | #{user.email}
+                    .profile-stats
+                        .stat-item
+                            .stat-number #{friendCount}
+                            .stat-label 
+                                i.fa.fa-users
+                                | Bạn bè
+                        .stat-item
+                            .stat-number #{requestSentCount}
+                            .stat-label 
+                                i.fa.fa-paper-plane
+                                | Đã gửi
+                        .stat-item
+                            .stat-number #{requestReceivedCount}
+                            .stat-label 
+                                i.fa.fa-inbox
+                                | Lời mời
+            .col-lg-8
+                .info-section
+                    .section-header
+                        h4 
+                            i.fa.fa-info-circle
+                            | Thông tin chi tiết
+                    .info-content
+                        .info-row
+                            .info-label
+                                i.fa.fa-user
+                                | Họ và tên
+                            .info-value #{user.fullName}
+                        .info-row
+                            .info-label
+                                i.fa.fa-envelope
+                                | Email
+                            .info-value #{user.email}
+                        .info-row
+                            .info-label
+                                i.fa.fa-phone
+                                | Số điện thoại
+                            .info-value #{user.phone || 'Chưa cập nhật'}
+                        .info-row
+                            .info-label
+                                i.fa.fa-id-badge
+                                | ID người dùng
+                            .info-value.user-id #{user.id}
+                        .info-row
+                            .info-label
+                                i.fa.fa-toggle-on
+                                | Trạng thái
+                            .info-value
+                                span(class = user.status === 'active' ? 'status-active' : 'status-inactive')
+                                    i.fa.fa-circle
+                                    | #{user.status === 'active' ? 'Hoạt động' : 'Không hoạt động'}
+                        .info-row
+                            .info-label
+                                i.fa.fa-calendar
+                                | Ngày tham gia
+                            .info-value #{new Date(user.createdAt).toLocaleDateString('vi-VN')}
+                    .action-buttons
+                        a.btn-edit(href="/users/edit")
+                            i.fa.fa-edit
+                            | Chỉnh sửa thông tin
+                        a.btn-password(href="/users/change-password")
+                            i.fa.fa-lock
+                            | Đổi mật khẩu

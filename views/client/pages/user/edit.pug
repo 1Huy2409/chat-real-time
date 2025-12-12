@@ -1,0 +1,60 @@
+extends ../../layouts/default.pug 
+include ../../mixins/box-head.pug 
+include ../../mixins/alert.pug
+
+block main 
+    +alert-error(2000)
+    +alert-success(2000)
+    .container.my-3 
+        .row
+            .col-12 
+                +box-head("✏️ Chỉnh sửa thông tin")
+        .row.mt-4.justify-content-center
+            .col-lg-8
+                .edit-form-container
+                    form(
+                        action="/users/edit"
+                        method="POST"
+                    )
+                        .form-group.mb-4
+                            label.form-label
+                                i.fa.fa-user
+                                | Họ và tên
+                            input.form-control(
+                                type="text"
+                                name="fullName"
+                                placeholder="Nhập họ và tên"
+                                value=user.fullName
+                                required
+                            )
+
+                        .form-group.mb-4
+                            label.form-label
+                                i.fa.fa-envelope
+                                | Email
+                            input.form-control(
+                                type="email"
+                                name="email"
+                                placeholder="Nhập email"
+                                value=user.email
+                                required
+                            )
+
+                        .form-group.mb-4
+                            label.form-label
+                                i.fa.fa-phone
+                                | Số điện thoại
+                            input.form-control(
+                                type="text"
+                                name="phone"
+                                placeholder="Nhập số điện thoại"
+                                value=user.phone || ""
+                            )
+
+                        .form-actions
+                            button.btn-save(type="submit")
+                                i.fa.fa-save
+                                | Lưu thay đổi
+                            a.btn-cancel(href="/users/info")
+                                i.fa.fa-times
+                                | Hủy bỏ

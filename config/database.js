@@ -1,13 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-module.exports.connect = async (req, res) => {
-    try {
-        //connect to database
-        await mongoose.connect(process.env.MONGO_URL);
-        console.log("Connected successfully!");
-    }
-    catch (error) {
-        console.log("Connected error!");
-    }
-}
-mongoose.connect("mongodb://localhost:27017/chat-realtime");
+mongoose.set("bufferCommands", false);
+
+module.exports.connect = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL, {
+      serverSelectionTimeoutMS: 30000,
+      connectTimeoutMS: 30000,
+      socketTimeoutMS: 30000,
+    });
+
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.error("MongoDB connection failed");
+    console.error(error);
+    throw error;
+  }
+};

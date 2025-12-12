@@ -4,40 +4,60 @@ include ../../mixins/alert.pug
 block main 
     +alert-success(2000)
     +alert-error(2000)
-    .container.my-5 
+    .container.my-5.auth-container
         .row.justify-content-center 
-            .col-8 
+            .col-12
+                .text-center.mb-4
+                    i.fa.fa-user-plus(style="font-size: 4rem; color: #667eea;")
                 h1(class="text-center") Đăng ký tài khoản 
                 form(
-                    action="/user/register"
+                    action="/auth/register"
                     method="POST"
                 )
                     div(class="form-group")
-                        label(for="fullName") Họ và tên 
+                        label(for="fullName") 
+                            i.fa.fa-user(style="margin-right: 8px;")
+                            | Họ và tên
                         input(
                             type="text"
                             class="form-control"
                             id="fullName"
                             name="fullName"
+                            placeholder="Nhập họ và tên của bạn"
+                            required
                         )
                     div(class="form-group")
-                        label(for="email") Email 
+                        label(for="email") 
+                            i.fa.fa-envelope(style="margin-right: 8px;")
+                            | Email
                         input(
-                            type="text"
+                            type="email"
                             class="form-control"
                             id="email"
                             name="email"
+                            placeholder="Nhập địa chỉ email"
+                            required
                         )
                     div(class="form-group")
-                        label(for="password") Mật khẩu 
+                        label(for="password") 
+                            i.fa.fa-lock(style="margin-right: 8px;")
+                            | Mật khẩu
                         input(
-                            type="text"
+                            type="password"
                             class="form-control"
                             id="password"
                             name="password"
+                            placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)"
+                            required
                         )
                     div(class="form-group")
                         button(
                             type="submit"
-                            class="btn btn-danger btn-block"
-                        ) Đăng ký
+                            class="btn btn-danger"
+                        ) 
+                            i.fa.fa-check-circle(style="margin-right: 8px;")
+                            | Đăng ký
+
+                a(href="/auth/login") 
+                    i.fa.fa-sign-in(style="margin-right: 5px;")
+                    | Đã có tài khoản? Đăng nhập ngay

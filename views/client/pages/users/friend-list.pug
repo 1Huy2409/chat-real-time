@@ -2,31 +2,37 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug 
 
 block main 
-    .container.my-3 
-        include ../../partials/list-button.pug 
-        .row
-            .col-12 
-                +box-head("Danh sách bạn bè")
-        .row    
-            each user in users
-                .col-6(user-id = user.id)
-                    div(class = "box-user")
-                        div(class = "inner-avatar")
-                            img(
-                                src = (user.avatar ? user.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
-                                alt = user.fullName
-                            )
-                        div(class = "inner-info")
-                            div(class = "inner-name") #{user.fullName}
-                            span(
-                                class = "inner-status"
-                                status-online = user.statusOnline
-                            )
-                                <i class="fa fa-circle" aria-hidden="true"></i>
-                            div(class = "inner-buttons") 
-                                a(
-                                    href = `/chat/${user.infoRoomChat}`
-                                    class = "btn btn-sm bn-primary mr-1"
-                                ) Nhắn tin
-block script 
-    <script type = "module" src="/js/users.js"></script>  
+  .container.my-3 
+    include ../../partials/list-button.pug 
+    .row
+      .col-12 
+        +box-head("👫 Danh sách bạn bè")
+    .row    
+      each item in users
+        .col-md-6.col-lg-4.mb-3(user-id = item._id)
+          div(class = "box-user" style="margin-top: 10px;")
+            div(class = "inner-avatar")
+              img(
+                src = (item.avatar ? item.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
+                alt = item.fullName
+              )
+            div(class = "inner-info")
+              div(class = "inner-name") 
+                i.fa.fa-user(style="margin-right: 5px; color: #667eea;")
+                | #{item.fullName}
+              span(
+                class = "inner-status"
+                status-online = item.statusOnline
+              )
+                i.fa.fa-circle(style="margin-right: 5px;")
+                | Online
+              div(class = "inner-buttons mt-2") 
+                a(
+                  href = `/chat/${item.infoRoomChat}`
+                ) 
+                  i.fa.fa-comments(style="margin-right: 5px;")
+                  | Nhắn tin
+block script
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/users.js"></script>  
