@@ -247,41 +247,6 @@ Trong Railway Dashboard → Variables → Add:
 - `EMAIL_USER` (optional)
 - `EMAIL_PASSWORD` (optional)
 
-### Bước 6: Deploy
-
-Railway sẽ tự động deploy sau khi thêm biến môi trường.
-
-## 🎯 Sử dụng
-
-1. **Đăng ký tài khoản mới** tại `/user/register`
-2. **Đăng nhập** tại `/user/login`
-3. **Tìm kiếm người dùng** và gửi lời mời kết bạn
-4. **Chấp nhận lời mời** để trở thành bạn bè
-5. **Nhắn tin** trực tiếp với bạn bè
-6. **Tạo phòng chat nhóm** để chat với nhiều người
-
-## 🐛 Troubleshooting
-
-### Lỗi "MongoStore.create is not a function"
-
-Đảm bảo import connect-mongo đúng cách:
-
-```javascript
-const MongoStore = require("connect-mongo").default;
-```
-
-### Lỗi kết nối MongoDB
-
-- Kiểm tra MongoDB connection string trong `.env`
-- Đảm bảo IP của bạn được whitelist trong MongoDB Atlas
-- Kiểm tra username/password
-
-### Socket.IO không hoạt động
-
-- Đảm bảo `my-user-id` attribute được set đúng trong body tag
-- Kiểm tra socket.js được load trước các file khác
-- Kiểm tra console log để xem kết nối socket
-
 ## 📝 License
 
 ISC
