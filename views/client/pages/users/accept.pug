@@ -2,42 +2,52 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug 
 
 block main 
-    .container.my-3 
-        include ../../partials/list-button.pug 
-        .row
-            .col-12 
-                +box-head("Danh sách người dùng")
-        .row(
-            info-user-accept = user.id
-        )   
-            each user in users
-                .col-6
-                    div(class = "box-user")
-                        div(class = "inner-avatar")
-                            img(
-                                src = (user.avatar ? user.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
-                                alt = user.fullName
-                            )
-                        div(class = "inner-info")
-                            div(class = "inner-name") #{user.fullName}
-                            div(class = "inner-buttons") 
-                                button(
-                                    class = "btn btn-sm bn-primary mr-1"
-                                    btn-accept-friend = user.id
-                                ) Chấp nhận
-                                button(
-                                    class = "btn btn-sm bn-primary mr-1"
-                                    btn-delete-friend = user.id
-                                ) Xóa
-                                button(
-                                    class = "btn btn-sm bn-primary mr-1"
-                                    btn-accepted-friend = user.id
-                                    disabled 
-                                ) Đã chấp nhận
-                                button(
-                                    class = "btn btn-sm bn-primary mr-1"
-                                    btn-deleted-friend = user.id
-                                    disabled 
-                                ) Đã xóa
-block script 
-    <script type = "module" src="/js/users.js"></script>  
+  .container.my-3 
+    include ../../partials/list-button.pug 
+    .row
+      .col-12 
+        +box-head("📥 Lời mời kết bạn")
+    .row(
+      info-user-accept = user.id
+    )   
+      each item in users
+        .col-md-6.col-lg-4.mb-3
+          div(class = "box-user")
+            div(class = "inner-avatar")
+              img(
+                src = (item.avatar ? item.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
+                alt = item.fullName
+              )
+            div(class = "inner-info")
+              div(class = "inner-name") #{item.fullName}
+              div(class = "inner-buttons") 
+                button(
+                  btn-accept-friend = item._id
+                  style="margin: 5px;"
+                ) 
+                  i.fa.fa-check(style="margin-right: 5px;")
+                  | Chấp nhận
+                button(
+                  btn-delete-friend = item._id
+                  style="margin: 5px;"
+                ) 
+                  i.fa.fa-trash(style="margin-right: 5px;")
+                  | Xóa
+                button(
+                  btn-accepted-friend = item._id
+                  style="margin: 5px;"
+                  disabled 
+                ) 
+                  i.fa.fa-check-circle(style="margin-right: 5px;")
+                  | Đã chấp nhận
+                button(
+                  btn-deleted-friend = item._id
+                  style="margin: 5px;"
+                  disabled 
+                ) 
+                  i.fa.fa-ban(style="margin-right: 5px;")
+                  | Đã xóa
+block script
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/users.js"></script>  

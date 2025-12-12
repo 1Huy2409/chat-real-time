@@ -2,29 +2,35 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug 
 
 block main 
-    .container.my-3 
-        .row
-            .col-12 
-                +box-head("Phòng chat")
-        .row.mb-3 
-            .col-12
+  .container.my-3 
+    .row
+      .col-12 
+        +box-head("🏠 Phòng chat")
+    .row.mb-3 
+      .col-12.text-center.mt-3
+        a(
+          href = "/rooms-chat/create"
+          class = "btn-create"
+        ) 
+          i.fa.fa-plus-circle(style="margin-right: 8px;")
+          | Tạo phòng mới
+    .row 
+      each room in rooms
+        .col-md-6.col-lg-4.mb-3
+          div(class = "box-room")
+            div(class = "inner-avatar")
+              img(
+                src = room.avatar || "https://robohash.org/" + room.title + ".png"
+                alt = room.title
+              )
+            div(class = "inner-info")
+              div(class = "inner-name") 
+                i.fa.fa-comments(style="margin-right: 5px; color: #667eea;")
+                | #{room.title}
+              div(class = "inner-button mt-2")
                 a(
-                    href = "/rooms-chat/create"
-                    class = "btn-create"
-                ) Tạo phòng
-        .row 
-            .col-6
-                each room in rooms
-                    div(class = "box-room")
-                        div(class = "inner-avatar")
-                            img(
-                                src = "https://robohash.org/hicveldicta.png"
-                                alt = "1Huy"
-                            )
-                        div(class = "inner-info")
-                            div(class = "inner-name") #{room.title}
-                            div(class = "inner-button")
-                                a(
-                                    href = `/chat/${room.id}`
-                                    class = "btn btn-sm btn-primary mr-1 btn-message"
-                                ) Nhắn tin
+                  href = `/chat/${room.id}`
+                  class = "btn-message"
+                ) 
+                  i.fa.fa-paper-plane(style="margin-right: 5px;")
+                  | Nhắn tin

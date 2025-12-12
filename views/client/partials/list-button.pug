@@ -1,22 +1,19 @@
-div(class="list-buttons d-flex justify-content-start mb-3")
-    a(
-        class="btn btn-primary m-1"
-        href="/users/not-friend"
-    ) Danh sách người dùng
-    a(
-        class="btn btn-primary m-1"
-        href="/users/friend"
-    ) Danh sách bạn bè
-    a(
-        class="btn btn-primary m-1"
-        href="/users/request"
-    ) Lời mời đã gửi
-    a(
-        class="btn btn-primary m-1"
-        href="/users/accept"
-    )
-        | Lời mời kết bạn
-        span(
-            class = "badge badge-light"
-            badge-users-accept = user.id
-        ) #{user.acceptFriend.length}
+div(class="list-buttons mb-3")
+  a(href="/users/not-friend")
+    i.fa.fa-users(style="margin-right: 5px;")
+    | Người dùng
+  a(href="/users/friend")
+    i.fa.fa-user-circle(style="margin-right: 5px;")
+    | Bạn bè
+  a(href="/users/request")
+    i.fa.fa-paper-plane(style="margin-right: 5px;")
+    | Đã gửi
+  a(href="/users/accept")
+    i.fa.fa-bell(style="margin-right: 5px;")
+    | Lời mời
+    if user.acceptFriend.length > 0
+      span(
+        class = "badge"
+        badge-users-accept = user.id
+        style="background: #dc3545; color: white; padding: 3px 8px; border-radius: 12px; margin-left: 5px; font-size: 0.75rem;"
+      ) #{user.acceptFriend.length}

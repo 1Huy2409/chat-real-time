@@ -1,630 +1,1404 @@
-/* Tổng thể header */
+/* ===== Reset & Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Changed from purple gradient to professional blue-gray gradient */
+  background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* ===== Header Styles ===== */
 header.header {
-    background-color: #154585;
-    /* Màu nền */
-    color: white;
-    /* Màu chữ */
-    padding: 10px 20px;
+  /* Updated to professional blue gradient */
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Bố cục container */
 header.header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    /* Căn giữa */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Hàng trong header */
 header.header .row.align-items-center {
-    display: flex;
-    align-items: center;
-    /* Căn giữa theo chiều dọc */
-    justify-content: space-between;
-    /* Căn đều khoảng cách các cột */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
 
-/* Cột logo */
+/* Logo */
 header.header .col-3 .inner-logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+header.header .col-3 .inner-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 header.header .col-3 .inner-logo img {
-    height: 100px;
-    /* Chiều cao logo */
-    width: 100px;
-    /* Tự động điều chỉnh chiều rộng */
-    border-radius: 20px;
-    /* Logo dạng hình tròn */
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  object-fit: cover;
 }
 
-/* Tiêu đề */
+header.header .col-3 .inner-logo img:hover {
+  transform: scale(1.05) rotate(5deg);
+  border-color: #fff;
+}
+
+/* Title */
 header.header .col-5 h1 {
-    padding-left: 100px;
-    font-size: 1.8rem;
-    text-align: center;
-    margin: 0;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
-/* Menu */
+/* Navigation Menu */
 header.header .col-4 .inner-menu ul {
-    list-style: none;
-    /* Loại bỏ dấu chấm đầu dòng */
-    display: flex;
-    justify-content: flex-end;
-    /* Canh phải */
-    gap: 20px;
-    /* Khoảng cách giữa các mục */
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 header.header .col-4 .inner-menu ul li a {
-    text-decoration: none;
-    /* Loại bỏ gạch chân */
-    color: white;
-    /* Màu chữ */
-    font-size: 1rem;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
-    /* Hiệu ứng hover */
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 header.header .col-4 .inner-menu ul li a:hover {
-    background-color: #fff;
-    /* Màu nền khi hover */
-    border-radius: 4px;
-    /* Bo góc */
-    color: #000;
+  background: #fff;
+  /* Updated hover color to match new blue theme */
+  color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* css cho login page */
-/* Container tổng thể */
+/* ===== Home Page Container ===== */
 .container.my-5 {
-    margin-top: 50px;
-    max-width: 600px;
-    background-color: #f8f9fa;
-    /* Màu nền nhẹ */
-    padding: 30px;
-    border-radius: 8px;
-    /* Bo góc */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Hiệu ứng đổ bóng */
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1200px;
+  padding: 40px;
+  animation: fadeInUp 0.5s ease;
 }
 
-/* Tiêu đề */
+/* ===== Auth Pages Container (Login, Register, Forgot Password) ===== */
+.container.my-5.auth-container {
+  max-width: 550px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container.my-5 h1 {
-    font-size: 2rem;
-    color: #154585;
-    /* Màu xanh nổi bật */
-    margin-bottom: 20px;
-    font-weight: bold;
+  font-size: 2rem;
+  /* Updated title color to professional blue */
+  color: #2563eb;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
 }
 
-/* Nhãn (Label) */
+/* For home page title */
+.container.my-5 h1.display-3 {
+  color: white;
+  font-size: 3rem;
+}
+
+.container.my-5 .card {
+  transition: all 0.3s ease;
+}
+
+.container.my-5 .card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 25px;
+}
+
 .form-group label {
-    font-weight: bold;
-    color: #333;
-    /* Màu chữ đậm */
-    text-align: center;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 0.95rem;
 }
 
-/* Ô input */
+/* Input Fields */
 .form-control {
-    border: 1px solid #ccc;
-    /* Đường viền nhạt */
-    border-radius: 4px;
-    /* Bo góc input */
-    padding: 10px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  background: #f8f9fa;
 }
 
 .form-control:focus {
-    border-color: #154585;
-    /* Đổi màu viền khi focus */
-    outline: none;
-    box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
-    /* Hiệu ứng sáng */
-
+  /* Updated focus color to blue */
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  background: #fff;
 }
 
-/* Nút đăng nhập */
+.form-control::placeholder {
+  color: #aaa;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  margin: 10px 0;
+  display: block;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
 .btn-success {
-    background-color: #154585;
-    border: none;
-    padding: 12px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+  /* Changed to solid professional blue instead of gradient */
+  background: #2563eb;
+  color: white;
 }
 
 .btn-success:hover {
-    background-color: #45a049;
-    /* Màu xanh đậm hơn khi hover */
+  /* Darker blue on hover */
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
-.btn {
-    width: 50%;
-    /* Tùy chọn: làm nút rộng 50% so với cha */
-    margin: 8px auto;
-    /* Căn giữa nút bên trong div */
-    display: block;
-    /* Đảm bảo nút chiếm toàn dòng để margin hoạt động */
+.btn-danger {
+  /* Changed to solid red instead of pink gradient */
+  background: #dc2626;
+  color: white;
 }
 
-/* Link quên mật khẩu */
+.btn-danger:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
+}
+
+.btn-send-otp {
+  width: 100% !important;
+  /* Changed to solid teal instead of cyan gradient */
+  background: #0d9488;
+}
+
+.btn-send-otp:hover {
+  background: #0f766e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.4);
+}
+
+/* Links */
 a {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #154585;
-    text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  /* Updated link color to blue */
+  color: #2563eb;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 a:hover {
-    text-decoration: underline;
+  /* Darker blue on hover */
+  color: #1e40af;
+  text-decoration: none;
+  transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .container.my-5 {
-        padding: 20px;
-    }
-
-    .btn-success {
-        font-size: 1rem;
-    }
-}
-
-/* css phan chat */
-/* Toàn bộ vùng chat */
+/* ===== Chat Container ===== */
+/* ===== Chat Container ===== */
 .container.my-3 {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 20px auto;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  animation: fadeInUp 0.5s ease;
+  padding: 0 20px;
 }
 
-/* Tiêu đề chat */
+/* Box Head */
 .box-head {
-    background-color: #154585;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  padding: 25px 30px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Phần nội dung chat */
+/* Chat Body */
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
 .inner-body {
-    padding: 15px;
-    max-height: 400px;
-    /* Giới hạn chiều cao */
-    overflow-y: auto;
-    /* Cuộn khi nội dung vượt quá chiều cao */
-    background-color: white;
+  flex: 1;
+  padding: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  scroll-behavior: smooth;
 }
 
-/* Tin nhắn đến */
+/* Scrollbar Styling */
+.inner-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.inner-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.inner-body::-webkit-scrollbar-thumb {
+  /* Updated scrollbar to blue */
+  background: #2563eb;
+  border-radius: 10px;
+}
+
+.inner-body::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
+}
+
+/* Incoming Messages */
 .inner-incoming {
-    margin-bottom: 15px;
+  margin-bottom: 20px;
+  animation: slideInLeft 0.3s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .inner-incoming .inner-name {
-    font-weight: bold;
-    color: #154585;
-    margin-bottom: 5px;
+  font-weight: 600;
+  /* Updated name color to blue */
+  color: #2563eb;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
 }
 
 .inner-incoming .inner-content {
-    background-color: #e6f7ff;
-    /* Màu nền nhạt cho tin nhắn đến */
-    color: #000;
-    padding: 10px;
-    border-radius: 10px 10px 10px 0;
-    max-width: 60%;
-    /* Vẫn giữ giới hạn tối đa */
-    width: fit-content;
-    /* Tự điều chỉnh theo nội dung */
-    display: inline-block;
-    /* Đảm bảo không chiếm toàn bộ dòng */
-    word-wrap: break-word;
+  /* Changed to subtle gray instead of purple gradient */
+  background: #f1f5f9;
+  color: #333;
+  padding: 12px 18px;
+  border-radius: 18px 18px 18px 4px;
+  max-width: 70%;
+  width: fit-content;
+  display: inline-block;
+  word-wrap: break-word;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  line-height: 1.5;
 }
 
-/* Tin nhắn đi */
+/* Outgoing Messages */
 .inner-outgoing {
-    margin-bottom: 15px;
-    text-align: right;
-    /* Căn phải */
+  margin-bottom: 20px;
+  text-align: right;
+  animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .inner-outgoing .inner-content {
-    background-color: #154585;
-    /* Màu nền đậm cho tin nhắn đi */
-    color: white;
-    padding: 10px;
-    border-radius: 10px 10px 0 10px;
-    max-width: 60%;
-    /* Giới hạn tối đa */
-    width: fit-content;
-    /* Tự điều chỉnh theo nội dung */
-    margin-left: auto;
-    /* Đẩy về phía phải */
-    display: inline-block;
-    /* Đảm bảo không chiếm toàn bộ dòng */
-    word-wrap: break-word;
+  /* Changed to solid professional blue */
+  background: #2563eb;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 18px 18px 4px 18px;
+  max-width: 70%;
+  width: fit-content;
+  margin-left: auto;
+  display: inline-block;
+  word-wrap: break-word;
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.3);
+  line-height: 1.5;
 }
 
-/* Thanh nhập tin nhắn */
+/* Chat Input Footer */
+/* ===== Chat Input Footer FIX ===== */
 .inner-foot {
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-top: 1px solid #ddd;
-    overflow: hidden;
-    /* Để xử lý float */
-    white-space: nowrap;
-    /* Đảm bảo các phần tử không xuống dòng */
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
 }
 
 .inner-foot form {
-    display: flex;
-    height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+/* Input chiếm tối đa */
 .inner-foot input[type="text"] {
-    width: calc(100% - 120px);
-    /* Chiều rộng tính toán, đảm bảo chiếm phần lớn không gian */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    /* Đảm bảo padding không làm thay đổi kích thước thực tế */
-    float: left;
-    /* Căn sang trái */
+  flex: 1;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 22px;
+  border: 2px solid #e0e0e0;
+  font-size: 0.95rem;
+  background: #fff;
 }
 
-.inner-foot span {
-    width: 40px;
-    /* Chiều rộng cố định cho biểu tượng */
-    text-align: center;
-    line-height: 40px;
-    /* Căn giữa biểu tượng theo chiều dọc */
-    float: left;
-    /* Căn sang trái */
-    margin-left: 10px;
-    /* Khoảng cách giữa input và span */
-    cursor: pointer;
-    display: flex;
-}
-
-.inner-foot span i {
-    font-size: 1.2rem;
-    /* Kích thước biểu tượng */
-}
-
+/* Emoji + Send dùng chung style */
+.inner-foot span.button-icon,
 .inner-foot button {
-    width: 60px;
-    /* Chiều rộng cố định cho nút */
-    background-color: #154585;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 0;
-    font-size: 1rem;
-    text-align: center;
-    cursor: pointer;
-    float: left;
-    /* Căn sang trái */
-    margin-left: 10px;
-    /* Khoảng cách giữa span và button */
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Emoji button */
+.inner-foot span.button-icon {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  /* Updated emoji icon color */
+  color: #2563eb;
+  cursor: pointer;
+}
+
+.inner-foot span.button-icon:hover {
+  /* Updated hover state */
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Send button */
+.inner-foot button {
+  /* Changed to solid blue */
+  background: #2563eb;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 .inner-foot button:hover {
-    background-color: #123a70;
+  background: #1e40af;
+  transform: scale(1.05);
 }
 
-.inner-foot i.fa.fa-paper-plane {
-    font-size: 1rem;
+/* Icon size */
+.inner-foot i {
+  font-size: 1rem;
 }
 
-/* sua css btn-send-otp */
-.btn-send-otp {
-    width: 100% !important;
-    /* margin: 8px auto; 
-    display: block; */
-}
-
-/* show alert */
+/* ===== Alerts ===== */
 [show-alert] {
-    position: fixed;
-    top: 70px;
-    right: 15px;
-    z-index: 999;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+  min-width: 300px;
+  animation: slideInRight 0.5s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 [show-alert].alert-hidden {
-    animation-duration: 0.5s;
-    animation-name: alert-hidden;
-    animation-fill-mode: both;
+  animation-duration: 0.5s;
+  animation-name: alert-hidden;
+  animation-fill-mode: both;
 }
 
 @keyframes alert-hidden {
-    from {
-        right: 15px;
-    }
-
-    to {
-        right: -100%;
-        display: none;
-    }
+  from {
+    right: 20px;
+    opacity: 1;
+  }
+  to {
+    right: -100%;
+    opacity: 0;
+    display: none;
+  }
 }
 
 [show-alert] [close-alert] {
-    cursor: pointer;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 4px 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+  font-weight: bold;
 }
 
-/* css tooltip */
+[show-alert] [close-alert]:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* ===== Tooltip for Emoji Picker ===== */
 .tooltip {
-    visibility: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  transform: scale(0.9);
 }
 
 .tooltip.shown {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* css list button */
-.list-buttons a {
-    font-size: 14px;
-    /* Giảm kích thước chữ */
-    padding: 5px 10px;
-    /* Giảm khoảng cách trong nút */
-    width: 170px;
-    /* Đảm bảo nút không giãn ra hết chiều ngang */
-    display: block;
-    /* Đảm bảo các nút không giãn */
-}
-
+/* ===== List Buttons ===== */
 .list-buttons {
-    display: flex;
-    justify-content: flex;
-    /* Căn giữa các nút */
-    flex-direction: row;
-    gap: 10px;
-    /* Khoảng cách giữa các nút */
-    margin: 0 auto;
-    /* Đưa nhóm nút vào giữa màn hình */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 30px 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  backdrop-filter: none;
 }
 
-/* css not-friend */
+.list-buttons a {
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2563eb;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.list-buttons a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(37, 99, 235, 0.3);
+  background: #2563eb;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.list-buttons a.active {
+  background: #2563eb;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* ===== User Box Styles ===== */
 .box-user {
-    display: flex;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.box-user:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.25);
+  border-color: #2563eb;
+  background: #ffffff;
 }
 
 .box-user .inner-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #f2f2f2;
-    margin-right: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Updated avatar background to blue */
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  margin-right: 18px;
+  border: 3px solid #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .box-user .inner-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .box-user .inner-info {
-    flex: 1;
+  flex: 1;
 }
 
 .box-user .inner-info .inner-name {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 3px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-.inner-info button {
-    background-color: rgb(12, 69, 175);
-    color: white;
+.box-user .inner-info .inner-status {
+  font-size: 0.85rem;
+  /* Updated online status to green */
+  color: #059669;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
 }
 
-.inner-info button:hover {
-    background-color: #fff;
-    color: black;
+.box-user .inner-info .inner-status[status-online="Online"] {
+  opacity: 1;
+}
+
+.box-user .inner-info button,
+.box-user .inner-info a {
+  /* Changed to solid blue */
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.box-user .inner-info button:hover,
+.box-user .inner-info a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  /* Darker blue on hover */
+  background: #1e40af;
 }
 
 .box-user [btn-cancel-friend] {
-    background-color: #535050;
+  /* Updated cancel button to neutral gray */
+  background: #6b7280;
+}
+
+.box-user [btn-cancel-friend]:hover {
+  background: #4b5563;
 }
 
 .box-user.add [btn-add-friend] {
-    display: none;
+  display: none;
 }
 
 .box-user.add [btn-cancel-friend] {
-    display: block;
+  display: inline-block;
 }
 
 .box-user [btn-cancel-friend] {
-    display: none;
+  display: none;
 }
 
-/* css lời mời kết bạn */
 .box-user [btn-accepted-friend] {
-    display: none;
+  display: none;
+  /* Updated accepted button to green */
+  background: #059669;
 }
 
 .box-user [btn-deleted-friend] {
-    display: none;
+  display: none;
+  /* Updated deleted button to red */
+  background: #dc2626;
 }
 
 .box-user.refuse [btn-accept-friend] {
-    display: none;
+  display: none;
 }
 
 .box-user.refuse [btn-delete-friend] {
-    display: none;
+  display: none;
 }
 
 .box-user.refuse [btn-deleted-friend] {
-    display: inline-block;
+  display: inline-block;
 }
 
 .box-user.accepted [btn-delete-friend] {
-    display: none;
+  display: none;
 }
 
 .box-user.accepted [btn-accept-friend] {
-    display: none;
+  display: none;
 }
 
 .box-user.accepted [btn-accepted-friend] {
-    display: inline-block;
+  display: inline-block;
 }
 
-.inner-info a {
-    background-color: rgb(12, 69, 175);
-    color: white;
-    text-decoration: none;
-}
-
-.inner-info a:hover {
-    background-color: #fff;
-    color: black;
-}
-
-.inner-info .inner-status {
-    font-size: 12px;
-    color: #45a049;
-    opacity: 0;
-}
-
-.inner-info .inner-status[status-online="Online"] {
-    opacity: 1;
-}
-
+/* ===== Room Box Styles ===== */
 .box-room {
-    display: flex;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.box-room:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.25);
+  border-color: #2563eb;
+  background: #ffffff;
 }
 
 .box-room .inner-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #f2f2f2;
-    margin-right: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Updated avatar background */
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  margin-right: 18px;
+  border: 3px solid #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .box-room .inner-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
+.box-room .inner-info {
+  flex: 1;
+}
+
+.box-room .inner-info .inner-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
 .box-room .btn-message {
-    display: inline-block;
-    width: auto;
+  display: inline-block;
+  width: auto;
+  padding: 10px 24px;
+  /* Changed to solid blue */
+  background: #2563eb;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
+
+.box-room .btn-message:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  /* Darker blue on hover */
+  background: #1e40af;
+}
+
 .btn-create {
-    display: inline-block;
-    background-color: #45a049;
-    padding: 4px 8px;
-    border-radius: 4px;
-    color: white;
-    font-size: 14px;
+  display: inline-block;
+  background: #059669;
+  padding: 14px 28px;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
+
 .btn-create:hover {
-    text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(5, 150, 105, 0.5);
+  background: #047857;
+  text-decoration: none;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
 }
-/* css form create room */
+
+/* ===== Form Create Room ===== */
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 5px;
-    color: #495057;
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-input[type="text"],
-input[type="checkbox"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
 }
 
-input[type="text"]:focus {
-    border-color: #80bdff;
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+.form-group input[type="text"]:focus {
+  /* Updated focus color */
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  background: #fff;
 }
 
 /* Checkbox styling */
-
 .form-check {
-    display: flex;
-    align-items: center; /* Căn giữa theo trục dọc */
-    gap: 8px; /* Khoảng cách giữa checkbox và label */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .form-check-input {
-    width: auto; /* Đảm bảo kích thước hợp lý cho checkbox */
-    margin: 0; /* Xóa khoảng cách mặc định */
-    vertical-align: middle; /* Đảm bảo thẳng hàng với label */
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  /* Updated checkbox accent color */
+  accent-color: #2563eb;
 }
 
 .form-check-label {
-    font-size: 14px; /* Kích thước chữ */
-    color: #495057;
-    margin: 0; /* Xóa khoảng cách mặc định */
-    vertical-align: middle; /* Thẳng hàng với input */
-    line-height: 1.5; /* Điều chỉnh chiều cao dòng */
-}
-
-input[type="checkbox"] {
-    width: auto;
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 500;
 }
 
 /* Submit button */
 button[type="submit"] {
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  /* Changed to solid blue */
+  background: #2563eb;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  width: 100%;
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  /* Darker blue on hover */
+  background: #1e40af;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  header.header .col-5 h1 {
+    font-size: 1.2rem;
+    padding: 0;
+  }
+
+  header.header .col-4 .inner-menu ul {
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header.header .col-4 .inner-menu ul li a {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  header.header .row.align-items-center {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== Profile Page Styles ===== */
+.profile-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+  transform: translateY(-4px);
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #2563eb;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  position: relative;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.profile-email {
+  color: #64748b;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.profile-email i {
+  color: #2563eb;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 2px solid #e2e8f0;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.stat-label i {
+  color: #2563eb;
+}
+
+.info-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 100%;
+}
+
+.section-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.section-header h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-header i {
+  color: #2563eb;
+}
+
+.info-content {
+  margin-bottom: 25px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #64748b;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.info-label i {
+  color: #2563eb;
+  width: 18px;
+}
+
+.info-value {
+  color: #1e293b;
+  font-weight: 500;
+  text-align: right;
+  flex: 1;
+}
+
+.info-value.user-id {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.status-active {
+  color: #059669;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.status-active i {
+  font-size: 0.7rem;
+}
+
+.status-inactive {
+  color: #dc2626;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.status-inactive i {
+  font-size: 0.7rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-edit,
+.btn-password {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.btn-password {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: white;
+}
+
+.btn-password:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+  background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+}
+
+@media (max-width: 991px) {
+  .profile-card {
+    margin-bottom: 20px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-edit,
+  .btn-password {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .info-label {
+    min-width: auto;
+  }
+
+  .info-value {
+    text-align: left;
+  }
+
+  .status-active,
+  .status-inactive {
+    justify-content: flex-start;
+  }
+}
+
+/* ===== Edit Form Styles ===== */
+.edit-form-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.edit-form-container .form-group {
+  margin-bottom: 25px;
+}
+
+.edit-form-container .form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.edit-form-container .form-label i {
+  color: #2563eb;
+  width: 18px;
+}
+
+.edit-form-container .form-control {
+  width: 100%;
+  padding: 12px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #1e293b;
+}
+
+.edit-form-container .form-control:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.edit-form-container .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.password-tips {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-left: 4px solid #2563eb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.password-tips h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.password-tips li {
+  color: #475569;
+  font-size: 0.9rem;
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.password-tips li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn-save {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.btn-cancel {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+}
+
+.btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(107, 114, 128, 0.5);
+  background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+}
+
+@media (max-width: 576px) {
+  .edit-form-container {
+    padding: 25px 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+/* FIX: submit button trong chat không bị width:100% */
+.chat .inner-foot form {
+  width: 100%;
+}
+
+.chat .inner-foot button[type="submit"] {
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

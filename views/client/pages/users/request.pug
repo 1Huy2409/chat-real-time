@@ -2,30 +2,34 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug 
 
 block main 
-    .container.my-3 
-        include ../../partials/list-button.pug 
-        .row
-            .col-12 
-                +box-head("Danh sách người dùng")
-        .row    
-            each user in users
-                .col-6
-                    div(class = "box-user add")
-                        div(class = "inner-avatar")
-                            img(
-                                src = (user.avatar ? user.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
-                                alt = user.fullName
-                            )
-                        div(class = "inner-info")
-                            div(class = "inner-name") #{user.fullName}
-                            div(class = "inner-buttons") 
-                                button(
-                                    class = "btn btn-sm bn-primary mr-1"
-                                    btn-add-friend = user.id
-                                ) Kết bạn
-                                button(
-                                    class = "btn btn-sm bn-primary mr-1"
-                                    btn-cancel-friend = user.id
-                                ) Hủy
-block script 
-    <script type = "module" src="/js/users.js"></script>  
+  .container.my-3 
+    include ../../partials/list-button.pug 
+    .row
+      .col-12 
+        +box-head("📤 Lời mời đã gửi")
+    .row    
+      each item in users
+        .col-md-6.col-lg-4.mb-3
+          div(class = "box-user add")
+            div(class = "inner-avatar")
+              img(
+                src = (item.avatar ? item.avatar : "https://i.pinimg.com/736x/8f/1c/a2/8f1ca2029e2efceebd22fa05cca423d7.jpg")
+                alt = item.fullName
+              )
+            div(class = "inner-info")
+              div(class = "inner-name") #{item.fullName}
+              div(class = "inner-buttons") 
+                button(
+                  btn-add-friend = item._id
+                ) 
+                  i.fa.fa-user-plus(style="margin-right: 5px;")
+                  | Kết bạn
+                button(
+                  btn-cancel-friend = item._id
+                ) 
+                  i.fa.fa-times(style="margin-right: 5px;")
+                  | Hủy
+block script
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/users.js"></script>  

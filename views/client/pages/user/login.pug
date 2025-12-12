@@ -4,34 +4,52 @@ include ../../mixins/alert.pug
 block main 
     +alert-success(2000)
     +alert-error(2000)
-    .container.my-5 
+    .container.my-5.auth-container
         .row.justify-content-center 
-            .col-8 
-                h1(class="text-center") Đăng nhập 
+            .col-12
+                .text-center.mb-4
+                    i.fa.fa-user-circle(style="font-size: 4rem; color: #667eea;")
+                h1.text-center Đăng nhập 
                 form(
-                    action="/user/login"
+                    action="/auth/login"
                     method="POST"
                 )
                     div(class="form-group")
-                        label(for="email") Email 
+                        label(for="email") 
+                            i.fa.fa-envelope(style="margin-right: 8px;")
+                            | Email
                         input(
                             type="email"
                             class="form-control"
                             id="email"
                             name="email"
+                            placeholder="Nhập địa chỉ email của bạn"
+                            required
                         )
                     div(class="form-group")
-                        label(for="password") Password 
+                        label(for="password") 
+                            i.fa.fa-lock(style="margin-right: 8px;")
+                            | Mật khẩu
                         input(
                             type="password"
                             class="form-control"
                             id="password"
                             name="password"
+                            placeholder="Nhập mật khẩu"
+                            required
                         )
                     div(class="form-group")
                         button(
                             type="submit"
-                            class="btn btn-success btn-block"
-                        ) Đăng nhập
+                            class="btn btn-success"
+                        ) 
+                            i.fa.fa-sign-in(style="margin-right: 8px;")
+                            | Đăng nhập
 
-                a(href="/user/password/forgot") Quên mật khẩu?
+                a(href="/user/password/forgot") 
+                    i.fa.fa-question-circle(style="margin-right: 5px;")
+                    | Quên mật khẩu?
+
+                a(href="/auth/register") 
+                    i.fa.fa-user-plus(style="margin-right: 5px;")
+                    | Chưa có tài khoản? Đăng ký ngay
